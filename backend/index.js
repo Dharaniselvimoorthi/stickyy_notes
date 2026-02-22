@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 // 🔹 MongoDB Connection
-mongoose.connect("mongodb://127.0.0.1:27017/notesDB")
+mongoose.connect("mongodb+srv://DharaniselviMoorthi:dharani31@cluster0.v2jzapg.mongodb.net/notesDB?appName=Cluster0/notesDB")
 .then(() => console.log("MongoDB Connected"))
 .catch(err => console.log(err));
 
@@ -49,6 +49,7 @@ app.delete("/notes/:id", async (req, res) => {
 });
 
 
+const PORT = process.env.PORT || 3000;
 app.listen(3000, () => {
     console.log("Server running on port 3000");
 });
