@@ -1,4 +1,4 @@
-const API = "http://localhost:3000/notes";
+const API = "https://stickyy-notes.onrender.com/notes";
 
 async function fetchNotes() {
     const res = await fetch(API);
