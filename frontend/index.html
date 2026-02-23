@@ -3,35 +3,39 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Creative Idea Wall</title>
+<title>Midnight Secret Board</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<!-- Premium Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Cinzel:wght@600&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- Animated Gradient Background -->
-<div class="gradient-bg"></div>
+<!-- Cursor Glow -->
+<div class="cursor-glow"></div>
 
-<!-- Floating Shapes -->
-<div class="floating-shape shape1"></div>
-<div class="floating-shape shape2"></div>
-<div class="floating-shape shape3"></div>
+<!-- Spotlight -->
+<div class="spotlight"></div>
 
-<header>
-    <h1>✨ Creative Idea Wall</h1>
-    <p>Capture your thoughts beautifully</p>
-</header>
+<!-- Cork Board Background -->
+<div class="board"></div>
 
-<div class="form glass-card">
-    <input type="text" id="title" placeholder="Idea title...">
-    <textarea id="description" placeholder="Describe your idea..."></textarea>
-    <button onclick="addNote()">Add Idea</button>
+<!-- Floating Particles -->
+<div class="particles"></div>
+
+<h1 class="title">🕯 Midnight Secret Board</h1>
+
+<div class="form glass">
+    <input type="text" id="title" placeholder="Secret Title...">
+    <textarea id="description" placeholder="Write your hidden memory..."></textarea>
+    <button onclick="addNote()" class="ripple-btn">✉ Seal the Memory</button>
 </div>
 
-<div id="notesContainer" class="notes-grid"></div>
+<div id="notesContainer" class="notes"></div>
 
 <script src="script.js"></script>
+
 </body>
 </html>
