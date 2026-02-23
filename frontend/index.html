@@ -1,43 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Secret Vintage Notes</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creative Idea Wall</title>
 
-    <!-- Handwritten Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
-
-    <!-- Existing CSS -->
-    <link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <!-- Vintage Dark Overlay -->
-    <div class="vintage-overlay"></div>
+<!-- Animated Gradient Background -->
+<div class="gradient-bg"></div>
 
-    <!-- Floating Dust Texture -->
-    <div class="dust"></div>
+<!-- Floating Shapes -->
+<div class="floating-shape shape1"></div>
+<div class="floating-shape shape2"></div>
+<div class="floating-shape shape3"></div>
 
-    <!-- Floating Blobs (optional glow mix) -->
-    <div class="blob blob1"></div>
-    <div class="blob blob2"></div>
+<header>
+    <h1>✨ Creative Idea Wall</h1>
+    <p>Capture your thoughts beautifully</p>
+</header>
 
-    <!-- Title -->
-    <h1 class="title">🕯 Secret Vintage Notes</h1>
+<div class="form glass-card">
+    <input type="text" id="title" placeholder="Idea title...">
+    <textarea id="description" placeholder="Describe your idea..."></textarea>
+    <button onclick="addNote()">Add Idea</button>
+</div>
 
-    <!-- Input Form -->
-    <div class="form">
-        <input type="text" id="title" placeholder="Write your secret title...">
-        <textarea id="description" placeholder="Your hidden message..."></textarea>
-        <button onclick="addNote()">✉ Add Secret Note</button>
-    </div>
+<div id="notesContainer" class="notes-grid"></div>
 
-    <!-- Notes Board -->
-    <div id="notesContainer" class="notes"></div>
-
-    <!-- Script -->
-    <script src="script.js"></script>
-
+<script src="script.js"></script>
 </body>
 </html>
