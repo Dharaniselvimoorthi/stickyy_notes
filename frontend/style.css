@@ -1,58 +1,58 @@
 body {
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    font-family: 'Patrick Hand', cursive;
+    background: #3b2f2f;
+    background-image: radial-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)),
+    url("https://www.transparenttextures.com/patterns/wood-pattern.png");
     overflow-x: hidden;
-    color: white;
+    color: #2b2b2b;
 }
 
-/* Floating Blobs */
-.blob {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(100px);
-    animation: float 10s infinite alternate;
+/* Vintage Overlay */
+.vintage-overlay {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(circle at center, transparent 60%, rgba(0,0,0,0.6));
 }
 
-.blob1 {
-    width: 300px;
-    height: 300px;
-    background: #ff6ec4;
-    top: -50px;
-    left: -50px;
+/* Floating Dust */
+.dust::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url("https://www.transparenttextures.com/patterns/dust.png");
+    opacity: 0.2;
+    animation: floatDust 20s linear infinite;
 }
 
-.blob2 {
-    width: 300px;
-    height: 300px;
-    background: #7873f5;
-    bottom: -50px;
-    right: -50px;
-}
-
-@keyframes float {
-    from { transform: translateY(0px); }
-    to { transform: translateY(40px); }
+@keyframes floatDust {
+    from { transform: translateY(0); }
+    to { transform: translateY(-200px); }
 }
 
 .title {
     text-align: center;
     margin-top: 30px;
-    font-size: 2.5rem;
+    font-size: 3rem;
+    color: #fff3d1;
+    text-shadow: 2px 2px 10px black;
 }
 
+/* Glass Form */
 .form {
-    backdrop-filter: blur(15px);
     background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
     padding: 20px;
-    width: 320px;
+    width: 340px;
     margin: 20px auto;
     border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     transition: 0.3s;
 }
 
 .form:hover {
-    transform: scale(1.03);
+    transform: scale(1.05);
 }
 
 input, textarea {
@@ -62,6 +62,7 @@ input, textarea {
     border: none;
     border-radius: 10px;
     outline: none;
+    font-family: 'Patrick Hand', cursive;
 }
 
 button {
@@ -69,46 +70,81 @@ button {
     padding: 10px;
     border: none;
     border-radius: 10px;
-    background: #ff6ec4;
+    background: #8b5e3c;
     color: white;
-    font-weight: bold;
     cursor: pointer;
+    font-weight: bold;
     transition: 0.3s;
 }
 
 button:hover {
-    background: #ff3cac;
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
+/* NOTES BOARD */
 .notes {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
+    position: relative;
+    height: 80vh;
 }
 
+/* PAPER CARD */
 .card {
-    backdrop-filter: blur(15px);
-    background: rgba(255,255,255,0.15);
-    width: 220px;
-    padding: 15px;
-    border-radius: 20px;
-    animation: fadeIn 0.5s ease forwards;
+    position: absolute;
+    width: 230px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 5px 10px 20px rgba(0,0,0,0.6);
+    animation: popIn 0.5s ease;
     transition: 0.3s;
+    cursor: grab;
+}
+
+/* Random rotation */
+.card:nth-child(odd) {
+    transform: rotate(-3deg);
+}
+.card:nth-child(even) {
+    transform: rotate(3deg);
+}
+
+/* Paper look */
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 15px;
+    background: linear-gradient(to bottom right, rgba(255,255,255,0.4), transparent);
+    pointer-events: none;
 }
 
 .card:hover {
-    transform: translateY(-10px);
+    transform: scale(1.1) rotate(0deg);
+    z-index: 10;
 }
 
-.card button {
-    margin-top: 10px;
-    background: #ff3cac;
+/* Blur secret mode */
+.card p {
+    filter: blur(4px);
+    transition: 0.3s;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.8); }
+.card.open p {
+    filter: blur(0);
+}
+
+/* Delete animation */
+.card.delete {
+    animation: burn 0.4s forwards;
+}
+
+@keyframes burn {
+    to {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+@keyframes popIn {
+    from { opacity: 0; transform: scale(0); }
     to { opacity: 1; transform: scale(1); }
 }

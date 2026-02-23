@@ -1,25 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Glow Notes</title>
+    <meta charset="UTF-8">
+    <title>Secret Vintage Notes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Handwritten Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+
+    <!-- Existing CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Floating Background -->
+    <!-- Vintage Dark Overlay -->
+    <div class="vintage-overlay"></div>
+
+    <!-- Floating Dust Texture -->
+    <div class="dust"></div>
+
+    <!-- Floating Blobs (optional glow mix) -->
     <div class="blob blob1"></div>
     <div class="blob blob2"></div>
 
-    <h1 class="title">✨ Glow Notes</h1>
+    <!-- Title -->
+    <h1 class="title">🕯 Secret Vintage Notes</h1>
 
+    <!-- Input Form -->
     <div class="form">
-        <input type="text" id="title" placeholder="Note Title">
-        <textarea id="description" placeholder="Write something beautiful..."></textarea>
-        <button onclick="addNote()">Add Note</button>
+        <input type="text" id="title" placeholder="Write your secret title...">
+        <textarea id="description" placeholder="Your hidden message..."></textarea>
+        <button onclick="addNote()">✉ Add Secret Note</button>
     </div>
 
+    <!-- Notes Board -->
     <div id="notesContainer" class="notes"></div>
 
-<script src="script.js"></script>
+    <!-- Script -->
+    <script src="script.js"></script>
+
 </body>
 </html>
