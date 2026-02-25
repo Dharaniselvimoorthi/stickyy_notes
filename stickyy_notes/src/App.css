@@ -1,0 +1,175 @@
+body {
+    margin: 0;
+    font-family: 'Patrick Hand', cursive;
+    background: #1b1414;
+    background-image:
+        radial-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.85)),
+        url("https://www.transparenttextures.com/patterns/wood-pattern.png");
+    overflow: hidden;
+}
+
+/* Soft Spotlight */
+.spotlight {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Dust */
+.dust::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url("https://www.transparenttextures.com/patterns/dust.png");
+    opacity: 0.08;
+    pointer-events: none;
+}
+
+/* Title */
+.title {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 2.8rem;
+    color: #e8d5b7;
+    text-shadow: 2px 2px 8px black;
+}
+
+/* Form */
+.form {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(8px);
+    padding: 20px;
+    width: 330px;
+    margin: 20px auto;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 8px;
+    border: none;
+}
+
+button {
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
+    background: #6e4b2a;
+    color: white;
+    cursor: pointer;
+}
+
+/* Notes board */
+.notes {
+    position: relative;
+    height: 70vh;
+    margin-top: 20px;
+}
+
+/* Card */
+.card {
+    position: absolute;
+    width: 220px;
+    padding: 18px;
+    border-radius: 12px;
+    background: #251801b2;
+    box-shadow: 4px 10px 20px rgba(0,0,0,0.7);
+    cursor: grab;
+    user-select: none;
+    transition: transform 0.2s;
+}
+
+/* Blur */
+.card p {
+    filter: blur(3px);
+}
+
+.card.open p {
+    filter: blur(0);
+}
+
+/* Pin */
+.card.pinned {
+    border: 2px solid crimson;
+}
+
+/* Burn */
+.card.burn {
+    animation: burn 0.8s forwards;
+}
+
+@keyframes burn {
+    to {
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+
+.btn-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+}
+
+/* 3D perspective for board */
+.notes {
+    perspective: 1200px;
+}
+
+/* Enable 3D flip */
+.card {
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease, left 0.3s ease, top 0.3s ease;
+}
+
+/* Flip effect */
+.card.open {
+    transform: rotateY(180deg);
+}
+
+/* Front + Back faces */
+.card h3,
+.card p,
+.card .btn-group {
+    backface-visibility: hidden;
+}
+
+/* When flipped show content properly */
+.card.open p,
+.card.open h3,
+.card.open .btn-group {
+    transform: rotateY(180deg);
+}
+.card {
+  position: absolute;
+  width: 220px;
+  padding: 18px;
+  border-radius: 12px;
+  background: rgb(59, 2, 2);
+  box-shadow: 4px 10px 20px rgba(0,0,0,0.7);
+  cursor: grab;
+  user-select: none;
+  transition: transform 0.6s ease;
+  transform-style: preserve-3d;
+}
+
+.card.open {
+  transform: rotateY(180deg);
+}
+
+.card p {
+  filter: blur(4px);
+  transition: 0.4s;
+}
+
+.card.open p {
+  filter: blur(0);
+}
+
+.card.pinned {
+  border: 2px solid crimson;
+}
